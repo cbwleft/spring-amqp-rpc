@@ -4,10 +4,10 @@ import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
-import static com.cbwleft.rabbit.RabbitConfig.QUEUE_RPC;
+import static com.cbwleft.rabbit.RabbitConfig.QUEUE_SYNC_RPC;
 
 @Component
-@RabbitListener(queues = QUEUE_RPC)
+@RabbitListener(queues = QUEUE_SYNC_RPC)
 public class RPCServer {
 
 	@RabbitHandler

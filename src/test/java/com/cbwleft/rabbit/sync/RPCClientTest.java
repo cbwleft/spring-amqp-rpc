@@ -1,4 +1,4 @@
-package com.cbwleft.rabbit.rpc;
+package com.cbwleft.rabbit.sync;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

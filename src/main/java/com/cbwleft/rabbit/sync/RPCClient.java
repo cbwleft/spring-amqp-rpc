@@ -6,7 +6,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Component;
 
-import static com.cbwleft.rabbit.RabbitConfig.QUEUE_RPC;
+import static com.cbwleft.rabbit.RabbitConfig.QUEUE_SYNC_RPC;
 
 import java.util.concurrent.Future;
 
@@ -17,7 +17,7 @@ public class RPCClient {
 	AmqpTemplate amqpTemplate;
 
 	public String send(String message) {
-		String result = (String) amqpTemplate.convertSendAndReceive(QUEUE_RPC, message);
+		String result = (String) amqpTemplate.convertSendAndReceive(QUEUE_SYNC_RPC, message);
 		return result;
 	}
 
