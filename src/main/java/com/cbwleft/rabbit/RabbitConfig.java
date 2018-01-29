@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.scheduling.annotation.EnableAsync;
 
-
 @Configuration
 @EnableAsync
 public class RabbitConfig {
@@ -25,7 +24,7 @@ public class RabbitConfig {
 	 * 异步RPC队列，使用临时回复队列，或者使用“Direct reply-to”特性
 	 */
 	public static final String QUEUE_ASYNC_RPC = "rpc.async";
-	
+
 	/**
 	 * 异步RPC队列，每个客户端使用不同的固定回复队列，需要额外提供correlationId以关联请求和响应
 	 */
@@ -40,12 +39,12 @@ public class RabbitConfig {
 	public Queue asyncRPCQueue() {
 		return new Queue(QUEUE_ASYNC_RPC);
 	}
-	
+
 	@Bean
 	public Queue fixedReplyRPCQueue() {
 		return new Queue(QUEUE_ASYNC_RPC_WITH_FIXED_REPLY);
 	}
-	
+
 	@Bean
 	public Queue repliesQueue() {
 		return new AnonymousQueue();
@@ -63,6 +62,5 @@ public class RabbitConfig {
 	public AsyncRabbitTemplate asyncRabbitTemplate(RabbitTemplate template, SimpleMessageListenerContainer container) {
 		return new AsyncRabbitTemplate(template, container);
 	}
-	
 
 }

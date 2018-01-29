@@ -11,13 +11,13 @@ import static com.cbwleft.rabbit.RabbitConfig.QUEUE_SYNC_RPC;
 public class RPCServer {
 
 	@RabbitHandler
-	public String process(String message){
-		int millis = (int) (Math.random()*2*1000);
+	public String process(String message) {
+		int millis = (int) (Math.random() * 2 * 1000);
 		try {
 			Thread.sleep(millis);
 		} catch (InterruptedException e) {
 		}
-		return message+" sleep for "+millis+" ms";
+		return message + " sleep for " + millis + " ms";
 	}
-	
+
 }

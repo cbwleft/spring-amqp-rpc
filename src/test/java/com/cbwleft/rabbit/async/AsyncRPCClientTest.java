@@ -34,7 +34,6 @@ public class AsyncRPCClientTest {
 		for (Future<String> future : results) {
 			String result = future.get();
 			if (result == null) {
-				//logger.info("message will not timeout");
 				Assert.fail("message will not timeout");
 			} else {
 				logger.info(result);
